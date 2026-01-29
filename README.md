@@ -71,6 +71,6 @@ Cada pasta individual contém:
   [Acesse aqui]([https://docs.google.com/document/d/1LzsOySSWbhy81r3u3X7ldHWZYF_D6ev-isXvMyRwxqQ/edit?pli=1&tab=t.0#heading=h.35j97j8nvhs5](https://docs.google.com/document/d/1LzsOySSWbhy81r3u3X7ldHWZYF_D6ev-isXvMyRwxqQ/edit?usp=sharing)).
 
 - 🎥 **Vídeo do Grupo:**  
-  [Acesse aqui]().
+  [Acesse aqui](https://drive.google.com/drive/folders/11yehgTUo-rAGvPRZeDQryCMNB3JIgyif?usp=drive_link).
 
 
