@@ -1,0 +1,66 @@
+===============================================================================
+AUDITORIA DE TESTES - PROJETO MICROSOFT JARVIS
+===============================================================================
+-------------------------------------------------------------------------------
+
+1. BUSCA POR DIRETÓRIOS DE TESTE E ESPECIFICAÇÕES
+Comando:
+find . -type d \( -name "*test*" -o -name "*spec*" \) -not -path "*/node_modules/*" -not -path "*/.*"
+
+Descrição: 
+Este comando varre todo o repositório em busca de pastas padrão de teste. 
+Resultado: Nenhuma pasta de suíte de testes (unit, integration ou e2e) foi 
+encontrada.
+
+-------------------------------------------------------------------------------
+
+2. ANÁLISE DE SCRIPTS DE AUTOMAÇÃO (FRONTEND - WEB)
+Comando:
+cd hugginggpt/web && cat package.json | grep -A 5 "scripts"
+
+Descrição:
+Verificação dos comandos de ciclo de vida do Node.js/Vite no diretório web.
+Resultado: O script "test" está ausente. Existem apenas comandos para 
+desenvolvimento (dev), construção (build) e visualização (preview). 
+Não há gatilho configurado para execução de testes automatizados.
+
+-------------------------------------------------------------------------------
+
+3. VERIFICAÇÃO DE DEPENDÊNCIAS DE FERRAMENTAS DE TESTE
+Comando:
+cd hugginggpt/web && npm list jest vitest mocha cypress playwright
+
+Descrição:
+Verifica se algum framework de teste foi instalado como dependência do projeto.
+Resultado: O comando retorna vazio (empty), confirmando que nenhuma 
+ferramenta de mercado (como Jest ou Vitest) foi integrada ao projeto.
+
+-------------------------------------------------------------------------------
+
+4. BUSCA POR TESTES UNITÁRIOS EM PYTHON (BACKEND)
+Comando:
+find . -name "test_*.py" -o -name "*_test.py"
+
+Descrição:
+Busca por arquivos que sigam a convenção de nomes do Pytest ou Unittest.
+Resultado: Nenhum arquivo de teste Python foi localizado nos módulos 
+principais (server, models_server, etc.).
+
+-------------------------------------------------------------------------------
+
+5. ANÁLISE DE ARQUIVOS DE CONFIGURAÇÃO DE CI/CD
+Comando:
+ls -a | grep -E ".github|.travis.yml|jenkinsfile|circleci"
+
+Descrição:
+Busca por arquivos que indiquem a existência de um pipeline de CI ativo.
+Resultado: Existe a pasta .github, porém os workflows nela contidos 
+não realizam etapas de "npm test" ou "pytest", focando em outras ações.
+
+-------------------------------------------------------------------------------
+CONCLUSÃO DA AUDITORIA:
+O projeto Microsoft JARVIS não possui arquivos de teste prontos para uso. 
+A "dívida técnica" em relação a testes automatizados é alta, o que impede 
+a implementação imediata de um pipeline de Integração Contínua (CI) robusto 
+sem antes criar a base de testes unitários/integrados.
+===============================================================================
